@@ -221,6 +221,8 @@ struct dsi_panel {
 	int power_mode;
 	enum dsi_panel_physical_type panel_type;
 
+	int hbm_mode;
+
 #if defined(CONFIG_DISPLAY_SAMSUNG) || defined(CONFIG_DISPLAY_SAMSUNG_LEGO)
 	void *panel_private;
 	struct device_node *self_display_of_node;
@@ -350,6 +352,7 @@ int dsi_panel_parse_esd_reg_read_configs(struct dsi_panel *panel);
 
 void dsi_panel_ext_bridge_put(struct dsi_panel *panel);
 
+<<<<<<< HEAD
 #if defined(CONFIG_DISPLAY_SAMSUNG)
 int dsi_panel_set_pinctrl_state(struct dsi_panel *panel, bool enable);
 int dsi_panel_power_on(struct dsi_panel *panel);
@@ -371,4 +374,8 @@ int __ss_dsi_panel_parse_cmd_sets(struct dsi_panel_cmd_set *cmd,
 					int type, struct dsi_parser_utils *utils,
 					char (*ss_cmd_set_prop)[SS_CMD_PROP_STR_LEN]);
 #endif
+=======
+int dsi_panel_apply_hbm_mode(struct dsi_panel *panel);
+
+>>>>>>> e536c24e9218... drm: msm: dsi-staging: Add support for High Brightness Mode
 #endif /* _DSI_PANEL_H_ */
