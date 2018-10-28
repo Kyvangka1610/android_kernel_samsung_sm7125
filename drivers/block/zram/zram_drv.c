@@ -62,7 +62,7 @@ static const char *default_compressor = "lz4";
 #elif IS_ENABLED(CONFIG_CRYPTO_ZSTD)
 static const char *default_compressor = "zstd";
 #else
-static const char *default_compressor = "lzo-rle";
+static const char *default_compressor = CONFIG_ZRAM_DEFAULT_COMP_ALGORITHM;
 #endif
 
 /* Module params (documentation at end) */
