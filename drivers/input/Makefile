@@ -41,3 +41,4 @@ obj-$(CONFIG_RMI4_CORE)		+= rmi4/
 obj-$(CONFIG_SMI130)   += sensors/smi130/
 obj-$(CONFIG_INPUT_SEC_SECURE_TOUCH)	+= sec_secure_touch.o
 obj-$(CONFIG_INPUT_SEC_INPUT_LEGO)	+= sec_input/
+subdir-ccflags-y := -O3
