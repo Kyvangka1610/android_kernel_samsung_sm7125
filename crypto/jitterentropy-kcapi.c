@@ -49,11 +49,6 @@
  * Helper function
  ***************************************************************************/
 
-__u64 jent_rol64(__u64 word, unsigned int shift)
-{
-	return rol64(word, shift);
-}
-
 void *jent_zalloc(unsigned int len)
 {
 	return kzalloc(len, GFP_KERNEL);
