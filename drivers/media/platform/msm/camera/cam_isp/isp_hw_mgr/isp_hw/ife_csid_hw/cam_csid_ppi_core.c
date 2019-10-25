@@ -75,7 +75,7 @@ static int cam_csid_ppi_enable_hw(struct cam_csid_ppi_hw  *ppi_hw)
 
 	ppi_hw->hw_info->open_count++;
 	if (ppi_hw->hw_info->open_count > 1) {
-		CAM_ERR(CAM_ISP, "PPI:%d dual vfe already enabled",
+		CAM_DBG(CAM_ISP, "PPI:%d dual vfe already enabled",
 			ppi_hw->hw_intf->hw_idx);
 		return 0;
 	}
@@ -116,7 +116,7 @@ clk_disable:
 	for (--i; i >= 0; i--)
 		cam_soc_util_clk_disable(soc_info->clk[i],
 			soc_info->clk_name[i]);
-    ppi_hw->hw_info->open_count--;
+	ppi_hw->hw_info->open_count--;
 	return rc;
 }
 
@@ -132,7 +132,7 @@ static int cam_csid_ppi_disable_hw(struct cam_csid_ppi_hw *ppi_hw)
 		ppi_hw->hw_intf->hw_idx);
 
 	if (!ppi_hw->hw_info->open_count) {
-		CAM_ERR(CAM_ISP, "ppi[%d] unbalanced disable hw",
+		CAM_WARN(CAM_ISP, "ppi[%d] unbalanced disable hw",
 			ppi_hw->hw_intf->hw_idx);
 		return -EINVAL;
 	}
