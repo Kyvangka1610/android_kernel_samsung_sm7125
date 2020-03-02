@@ -1269,7 +1269,6 @@ int freeze_secondary_cpus(int primary)
 {
 	int cpu, error = 0;
 
-	unaffine_perf_irqs();
 	cpu_maps_update_begin();
 	unaffine_perf_irqs();
 	if (!cpu_online(primary))
@@ -1364,7 +1363,6 @@ void enable_nonboot_cpus(void)
 	reaffine_perf_irqs();
 out:
 	cpu_maps_update_done();
-	reaffine_perf_irqs();
 }
 
 static int __init alloc_frozen_cpus(void)
