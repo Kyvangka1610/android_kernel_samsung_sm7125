@@ -5402,10 +5402,22 @@ error:
 	return rc;
 }
 
+static struct attribute *display_fs_attrs[] = {
+	NULL,
+};
+
+static struct attribute_group display_fs_attrs_group = {
+	.attrs = display_fs_attrs,
+};
+
 static int dsi_display_sysfs_init(struct dsi_display *display)
 {
 	int rc = 0;
 	struct device *dev = &display->pdev->dev;
+
+	rc = sysfs_create_group(&dev->kobj, &display_fs_attrs_group);
+	if (rc)
+		pr_err("failed to create display device attributes");
 
 #if defined(CONFIG_DISPLAY_SAMSUNG)
 	/* In case of vidoe mode panel, dynamic mipi clock feature is required for the noise test.
