@@ -1406,9 +1406,9 @@ unsigned long reclaim_clean_pages_from_list(struct zone *zone,
 		/* Doesn't allow to write out dirty page */
 		.may_writepage = 0,
 	};
+	struct page *page, *next;
 	struct reclaim_stat stat;
 	unsigned long nr_reclaimed;
-	struct page *page, *next;
 	LIST_HEAD(clean_pages);
 
 	list_for_each_entry_safe(page, next, page_list, lru) {
