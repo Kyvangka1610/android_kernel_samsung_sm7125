@@ -227,3 +227,6 @@ obj-y  += security/samsung/tzic/
 
 # SPU signature verify
 obj-$(CONFIG_SPU_VERIFY) += spu_verify/
+
+# DTS X
+obj-$(CONFIG_AINUR_DTS_SW)      += dts_eagle/
