@@ -1,6 +1,10 @@
 config CORESIGHT_PLACEHOLDER
 	tristate "Coresight device placeholder driver"
+<<<<<<< HEAD
 	default n
+=======
+	default y
+>>>>>>> 18f85f0c30ef... hwtracing: Add a driver for disabling coresight clocks
 	depends on !CORESIGHT
 	help
 	  For targets which do not use coresight, this option enables a placeholder
@@ -8,7 +12,11 @@ config CORESIGHT_PLACEHOLDER
 
 config CORESIGHT_AMBA_PLACEHOLDER
 	tristate "Coresight primecell device placeholder driver"
+<<<<<<< HEAD
 	default n
+=======
+	default y
+>>>>>>> 18f85f0c30ef... hwtracing: Add a driver for disabling coresight clocks
 	depends on !CORESIGHT
 	help
 	  For targets which do not use coresight, this option enables a placeholder
