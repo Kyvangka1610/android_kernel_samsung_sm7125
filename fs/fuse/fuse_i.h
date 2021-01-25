@@ -1022,7 +1022,6 @@ struct posix_acl;
 struct posix_acl *fuse_get_acl(struct inode *inode, int type);
 int fuse_set_acl(struct inode *inode, struct posix_acl *acl, int type);
 
-<<<<<<< HEAD
 #ifdef CONFIG_FREEZER
 static inline void fuse_freezer_do_not_count(void)
 {
@@ -1066,13 +1065,15 @@ static inline void fuse_freezer_count(void) {}
 										\
 	__ret;									\
 })
-=======
+
 /* passthrough.c */
 int fuse_passthrough_open(struct fuse_dev *fud,
 			  struct fuse_passthrough_out *pto);
 int fuse_passthrough_setup(struct fuse_conn *fc, struct fuse_file *ff,
 			   struct fuse_open_out *openarg);
 void fuse_passthrough_release(struct fuse_passthrough *passthrough);
->>>>>>> 61f8835202a0... FROMLIST: fuse: Definitions and ioctl for passthrough
+ssize_t fuse_passthrough_read_iter(struct kiocb *iocb, struct iov_iter *to);
+ssize_t fuse_passthrough_write_iter(struct kiocb *iocb, struct iov_iter *from);
+
 
 #endif /* _FS_FUSE_I_H */
