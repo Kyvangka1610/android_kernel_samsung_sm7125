@@ -1174,6 +1174,13 @@ config CPUSETS_ASSIST
 	  This option enables in-kernel overrides for cpuset values.
 
 	  If unsure, say N.
+	  
+config SCHED_TUNE_DUMMY
+	bool "Create dummy SCHEDTUNE nodes"
+	depends on SMP
+	depends on !SCHED_TUNE && !CGROUP_SCHEDTUNE
+	help
+	  Create dummy SCHEDTUNE nodes.
 
 config DEFAULT_USE_ENERGY_AWARE
 	bool "Default to enabling the Energy Aware Scheduler feature"
