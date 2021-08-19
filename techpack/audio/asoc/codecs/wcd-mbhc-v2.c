@@ -2048,6 +2048,8 @@ int wcd_mbhc_init(struct wcd_mbhc *mbhc, struct snd_soc_codec *codec,
 	struct wcd937x_pdata *pdata = dev_get_platdata(wcd937x->dev);
 #endif
 
+ 	impedance_det_en = true;
+
 	pr_debug("%s: enter\n", __func__);
 
 	ret = of_property_read_u32(card->dev->of_node, hph_switch, &hph_swh);
