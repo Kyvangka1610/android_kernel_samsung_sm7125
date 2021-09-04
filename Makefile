@@ -1274,7 +1274,11 @@ endif
 endif
 
 # Disable clang-specific config options when using a different compiler
+<<<<<<< HEAD
 clang-specific-configs := LTO_CLANG CFI_CLANG SHADOW_CALL_STACK INIT_STACK_ALL
+=======
+clang-specific-configs := LTO_CLANG CFI_CLANG SHADOW_CALL_STACK INIT_STACK_ALL_ZERO FORTIFY_SOURCE
+>>>>>>> 661b23359c39a... ANDROID: Add FORTIFY_SOURCE to the list of clang-specific options
 
 PHONY += check-clang-specific-options
 check-clang-specific-options: $(KCONFIG_CONFIG) FORCE
