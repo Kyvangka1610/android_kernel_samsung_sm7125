@@ -247,5 +247,8 @@ config BLOCK_SUPPORT_STLOG
 	bool "Enable storage log"
 	depends on BLOCK && PROC_STLOG
 	default y
+	
+config BLK_PM
+	def_bool BLOCK && PM
 
 source block/Kconfig.iosched

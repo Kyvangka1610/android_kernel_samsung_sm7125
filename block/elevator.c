@@ -41,6 +41,7 @@
 
 #include "blk.h"
 #include "blk-mq-sched.h"
+#include "blk-pm.h"
 #include "blk-wbt.h"
 
 static DEFINE_SPINLOCK(elv_list_lock);
@@ -577,41 +578,6 @@ void elv_bio_merged(struct request_queue *q, struct request *rq,
 	if (e->type->ops.sq.elevator_bio_merged_fn)
 		e->type->ops.sq.elevator_bio_merged_fn(q, rq, bio);
 }
-
-#ifdef CONFIG_PM
-static void blk_pm_requeue_request(struct request *rq)
-{
-	if (rq->q->dev && !(rq->rq_flags & RQF_PM))
-		rq->q->nr_pending--;
-}
-
-static void blk_pm_add_request(struct request_queue *q, struct request *rq)
-{
-	if (q->dev && !(rq->rq_flags & RQF_PM) && q->nr_pending++ == 0 &&
-	    (q->rpm_status == RPM_SUSPENDED || q->rpm_status == RPM_SUSPENDING))
-		pm_request_resume(q->dev);
-		
-#if 1
-	// We detected runtime resume had not been called despite
-	// pm_runtime_work is not pending and running
-	// We can't know what makes this symptom. In the case, we will try to
-	// call pm_request_resume to resolve such a problem.
-	else if (q->nr_pending && q->dev && !(rq->cmd_flags & RQF_PM) &&
-			(q->rpm_status == RPM_SUSPENDED || q->rpm_status == RPM_SUSPENDING) &&
-			!work_pending(&q->dev->power.work) && !work_busy(&q->dev->power.work)) {
-		printk(KERN_ERR "%s: needs to call pm_request_resume(nr_pending=%u)\n",
-				q->elevator->type->elevator_name, q->nr_pending);
-		pm_request_resume(q->dev);
-	}
-#endif
-}
-#else
-static inline void blk_pm_requeue_request(struct request *rq) {}
-static inline void blk_pm_add_request(struct request_queue *q,
-				      struct request *rq)
-{
-}
-#endif
 
 void elv_requeue_request(struct request_queue *q, struct request *rq)
 {
