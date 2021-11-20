@@ -108,7 +108,6 @@ _kgsl_pool_get_page(struct kgsl_page_pool *pool)
 		mod_node_page_state(page_pgdat(p),
 				NR_KERNEL_MISC_RECLAIMABLE,
 				-pool->pool_order);
-	}
 	return p;
 }
 
