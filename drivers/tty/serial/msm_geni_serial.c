@@ -3955,7 +3955,7 @@ exit_runtime_resume:
 	return ret;
 }
 
-static int msm_geni_serial_sys_suspend_noirq(struct device *dev)
+static int msm_geni_serial_sys_suspend(struct device *dev)
 {
 	struct platform_device *pdev = to_platform_device(dev);
 	struct msm_geni_serial_port *port = platform_get_drvdata(pdev);
@@ -3985,7 +3985,7 @@ static int msm_geni_serial_sys_suspend_noirq(struct device *dev)
 	return 0;
 }
 
-static int msm_geni_serial_sys_resume_noirq(struct device *dev)
+static int msm_geni_serial_sys_resume(struct device *dev)
 {
 	struct platform_device *pdev = to_platform_device(dev);
 	struct msm_geni_serial_port *port = platform_get_drvdata(pdev);
@@ -4065,12 +4065,12 @@ static int msm_geni_serial_runtime_resume(struct device *dev)
 	return 0;
 }
 
-static int msm_geni_serial_sys_suspend_noirq(struct device *dev)
+static int msm_geni_serial_sys_suspend(struct device *dev)
 {
 	return 0;
 }
 
-static int msm_geni_serial_sys_resume_noirq(struct device *dev)
+static int msm_geni_serial_sys_resume(struct device *dev)
 {
 	return 0;
 }
@@ -4093,9 +4093,9 @@ static int msm_geni_serial_sys_resume(struct device *dev)
 static const struct dev_pm_ops msm_geni_serial_pm_ops = {
 	.runtime_suspend = msm_geni_serial_runtime_suspend,
 	.runtime_resume = msm_geni_serial_runtime_resume,
-	.suspend_noirq = msm_geni_serial_sys_suspend_noirq,
-	.resume_noirq = msm_geni_serial_sys_resume_noirq,
-	.freeze = msm_geni_serial_sys_suspend_noirq,
+	.suspend_noirq = msm_geni_serial_sys_suspend,
+	.resume_noirq = msm_geni_serial_sys_resume,
+	.freeze = msm_geni_serial_sys_suspend,
 	.restore = msm_geni_serial_sys_hib_resume_noirq,
 	.suspend = msm_geni_serial_sys_suspend,
 	.resume = msm_geni_serial_sys_resume,
