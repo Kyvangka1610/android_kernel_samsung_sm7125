@@ -923,7 +923,7 @@ static int voice_create_mvm_cvs_session(struct voice_data *v)
 	struct cvs_create_full_ctl_session_cmd cvs_full_ctl_cmd;
 	struct mvm_attach_stream_cmd attach_stream_cmd;
 	void *apr_mvm, *apr_cvs, *apr_cvp;
-	u16 mvm_handle, cvs_handle, cvp_handle;
+	__maybe_unused u16 mvm_handle, cvs_handle, cvp_handle;
 
 	if (v == NULL) {
 		pr_err("%s: v is NULL\n", __func__);

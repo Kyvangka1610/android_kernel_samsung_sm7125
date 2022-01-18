@@ -987,8 +987,8 @@ static int msm_pcm_close(struct snd_pcm_substream *substream)
 	struct hpcm_drv *prtd;
 	unsigned long dsp_flags;
 	struct dai_data *dai_data = NULL;
-	struct tap_point *tp = NULL;
-	struct tappnt_mxr_data *tmd = NULL;
+	__maybe_unused struct tap_point *tp = NULL;
+	__maybe_unused struct tappnt_mxr_data *tmd = NULL;
 	char *sess_name = NULL;
 
 	if (substream == NULL) {

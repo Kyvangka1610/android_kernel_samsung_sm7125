@@ -370,7 +370,7 @@ static void tas256x_hard_reset(struct tas256x_priv  *p_tas256x)
 
 void tas256x_failsafe(struct tas256x_priv  *p_tas256x)
 {
-	int n_result;
+	__maybe_unused int n_result;
 
 	pr_info("tas256x %s\n", __func__);
 	p_tas256x->mn_err_code |= ERROR_FAILSAFE;

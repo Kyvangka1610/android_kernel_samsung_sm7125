@@ -284,7 +284,7 @@ static int tas256x_put(struct snd_kcontrol *kcontrol,
 	struct soc_mixer_control *mc =
 		(struct soc_mixer_control *)kcontrol->private_value;
 	struct tas256x_priv *p_tas256x = NULL;
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 	int ret = -1;
 
 	if ((codec == NULL) || (mc == NULL)) {
@@ -390,7 +390,7 @@ static int tas256x_get(struct snd_kcontrol *kcontrol,
 	struct soc_mixer_control *mc =
 		(struct soc_mixer_control *)kcontrol->private_value;
 	struct tas256x_priv *p_tas256x = NULL;
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 	int ret = -1;
 
 	if ((codec == NULL) || (mc == NULL)) {
@@ -1017,7 +1017,7 @@ static void init_work_routine(struct work_struct *work)
 {
 	struct tas256x_priv *p_tas256x =
 		container_of(work, struct tas256x_priv, init_work.work);
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 
 	plat_data = (struct linux_platform *) p_tas256x->platform_data;
 #if IS_ENABLED(CONFIG_TAS256X_CODEC)
@@ -1034,7 +1034,7 @@ static void init_work_routine(struct work_struct *work)
 static irqreturn_t tas256x_irq_handler(int irq, void *dev_id)
 {
 	struct tas256x_priv *p_tas256x = (struct tas256x_priv *)dev_id;
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 
 	plat_data = (struct linux_platform *) p_tas256x->platform_data;
 	/* get IRQ status after 100 ms */
@@ -1119,7 +1119,7 @@ static void dc_work_routine(struct work_struct *work)
 {
 	struct tas256x_priv *p_tas256x =
 		container_of(work, struct tas256x_priv, dc_work.work);
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 
 	plat_data = (struct linux_platform *) p_tas256x->platform_data;
 #if IS_ENABLED(CONFIG_TAS256X_CODEC)
@@ -1137,7 +1137,7 @@ static void dc_work_routine(struct work_struct *work)
 
 void schedule_init_work(struct tas256x_priv *p_tas256x)
 {
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 
 	plat_data = (struct linux_platform *) p_tas256x->platform_data;
 	schedule_delayed_work(&p_tas256x->init_work, msecs_to_jiffies(50));

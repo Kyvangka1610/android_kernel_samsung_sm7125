@@ -612,7 +612,7 @@ static int tas256xiv_put(struct snd_kcontrol *kcontrol,
 	struct snd_soc_codec *codec = snd_soc_kcontrol_codec(kcontrol);
 	struct tas256x_priv *p_tas256x = NULL;
 	int iv_enable = 0, n_result = 0;
-	struct linux_platform *plat_data = NULL;
+	__maybe_unused struct linux_platform *plat_data = NULL;
 
 	if (codec == NULL) {
 		pr_err("%s:codec is NULL\n", __func__);

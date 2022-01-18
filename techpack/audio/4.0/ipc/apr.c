@@ -912,7 +912,7 @@ EXPORT_SYMBOL(apr_end_rx_rt);
 int apr_deregister(void *handle)
 {
 	struct apr_svc *svc = handle;
-	struct apr_client *clnt;
+	__maybe_unused struct apr_client *clnt;
 	uint16_t dest_id;
 	uint16_t client_id;
 

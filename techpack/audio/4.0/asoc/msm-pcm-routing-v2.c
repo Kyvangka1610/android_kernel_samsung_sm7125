@@ -1339,7 +1339,7 @@ static void msm_pcm_routing_build_matrix(int fedai_id, int sess_type,
 void msm_pcm_routing_reg_psthr_stream(int fedai_id, int dspst_id,
 				      int stream_type)
 {
-	int i, session_type, path_type, port_type;
+	__maybe_unused int i, session_type, path_type, port_type;
 	u32 mode = 0;
 
 	if (fedai_id > MSM_FRONTEND_DAI_MM_MAX_ID) {
@@ -1979,7 +1979,7 @@ int msm_pcm_routing_reg_phy_stream_v2(int fedai_id, int perf_mode,
 
 void msm_pcm_routing_dereg_phy_stream(int fedai_id, int stream_type)
 {
-	int i, port_type, session_type, path_type, topology, port_id;
+	__maybe_unused int i, port_type, session_type, path_type, topology, port_id;
 	struct msm_pcm_routing_fdai_data *fdai;
 
 	if (!is_mm_lsm_fe_id(fedai_id)) {
@@ -29859,7 +29859,7 @@ static int msm_pcm_routing_close(struct snd_pcm_substream *substream)
 {
 	struct snd_soc_pcm_runtime *rtd = substream->private_data;
 	unsigned int be_id = rtd->dai_link->id;
-	int i, session_type, path_type, topology;
+	__maybe_unused int i, session_type, path_type, topology;
 	struct msm_pcm_routing_bdai_data *bedai;
 	struct msm_pcm_routing_fdai_data *fdai;
 

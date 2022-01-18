@@ -278,7 +278,7 @@ static int wcd_check_cross_conn(struct wcd_mbhc *mbhc)
 	enum wcd_mbhc_plug_type plug_type = MBHC_PLUG_TYPE_NONE;
 	int hphl_adc_res = 0, hphr_adc_res = 0;
 	u8 fsm_en = 0;
-	int ret = 0;
+	__maybe_unused int ret = 0;
 	u8 adc_mode = 0;
 	u8 elect_ctl = 0;
 	u8 adc_en = 0;
@@ -736,7 +736,7 @@ static void wcd_correct_swch_plug(struct work_struct *work)
 	bool wrk_complete = false;
 	int pt_gnd_mic_swap_cnt = 0;
 	int no_gnd_mic_swap_cnt = 0;
-	bool is_pa_on = false, spl_hs = false, spl_hs_reported = false;
+	__maybe_unused bool is_pa_on = false, spl_hs = false, spl_hs_reported = false;
 	int ret = 0;
 	int spl_hs_count = 0;
 	int output_mv = 0;

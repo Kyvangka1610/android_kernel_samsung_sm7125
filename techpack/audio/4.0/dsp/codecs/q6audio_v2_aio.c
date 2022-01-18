@@ -171,7 +171,7 @@ void audio_aio_async_read_ack(struct q6audio_aio *audio, uint32_t token,
 	unsigned long flags;
 	union msm_audio_event_payload event_payload;
 	struct audio_aio_buffer_node *filled_buf;
-	int ret;
+	__maybe_unused int ret;
 
 	pr_debug("%s\n", __func__);
 

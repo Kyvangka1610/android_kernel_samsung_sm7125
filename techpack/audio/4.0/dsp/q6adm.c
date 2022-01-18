@@ -2268,7 +2268,7 @@ static void send_adm_cal_type(int cal_index, int path, int port_id,
 			      int acdb_id, int sample_rate)
 {
 	struct cal_block_data		*cal_block = NULL;
-	int ret;
+	__maybe_unused int ret;
 
 	pr_debug("%s: cal index %d\n", __func__, cal_index);
 
