@@ -112,7 +112,7 @@ static DEFINE_RWLOCK(binfmt_lock);
 
 #define ZYGOTE32_BIN "/system/bin/app_process32"
 #define ZYGOTE64_BIN "/system/bin/app_process64"
-#define FP_BIN_PREFIX "/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sm6250"
+#define FP_BIN_PREFIX "/vendor/bin/hw/android.hardware.biometrics.fingerprint"
 static struct signal_struct *zygote32_sig;
 static struct signal_struct *zygote64_sig;
 
