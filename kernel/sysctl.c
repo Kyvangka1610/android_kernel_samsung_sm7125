@@ -320,6 +320,16 @@ static int min_extfrag_threshold;
 static int max_extfrag_threshold = 1000;
 #endif
 
+#ifndef CONFIG_SCHED_WALT
+unsigned int dummy_sysctl_sched_boost = 0;
+int dummy_sched_boost_handler(struct ctl_table *table, int write,
+		void __user *buffer, size_t *lenp,
+		loff_t *ppos)
+{
+	return 0;
+}
+#endif
+
 static struct ctl_table kern_table[] = {
 	{
 		.procname	= "sched_child_runs_first",
@@ -438,10 +448,10 @@ static struct ctl_table kern_table[] = {
 #else
 	{
 		.procname	= "sched_boost",
-		.data		= &sysctl_sched_boost,
+		.data		= &dummy_sysctl_sched_boost,
 		.maxlen		= sizeof(unsigned int),
 		.mode		= 0644,
-		.proc_handler	= sched_boost_handler,
+		.proc_handler	= dummy_sched_boost_handler,
 		.extra1		= &neg_three,
 		.extra2		= &three,
 	},
