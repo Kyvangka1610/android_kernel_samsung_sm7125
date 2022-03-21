@@ -1,7 +1,7 @@
 echo -e "\nStarting compilation...\n"
 
 # ENV
-CONFIG=vendor/sixteen_defconfig
+CONFIG=vendor/sixteen_a52_defconfig
 KERNEL_DIR=$(pwd)
 PARENT_DIR="$(dirname "$KERNEL_DIR")"
 KERN_IMG="$HOME/out-new-R/out/arch/arm64/boot/Image.gz-dtb"
@@ -35,7 +35,7 @@ echo -e "\nCompiling $ZIPNAME\n"
 clang_build
 if [ -f "$out/arch/arm64/boot/Image.gz-dtb" ] && [ -f "$out/arch/arm64/boot/dtbo.img" ]; then
  echo -e "\nKernel compiled succesfully! Zipping up...\n"
- ZIPNAME="SixTeen•Kernel•S•Samsung-$(date '+%Y%m%d-%H%M').zip"
+ ZIPNAME="SixTeen•Kernel•S•Samsung•A52-$(date '+%Y%m%d-%H%M').zip"
  if [ ! -d AnyKernel3 ]; then
   git clone -q https://github.com/Kyvangka1610/AnyKernel3.git -b samsung
  fi;
