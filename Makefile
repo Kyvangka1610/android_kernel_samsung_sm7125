@@ -1274,11 +1274,7 @@ endif
 endif
 
 # Disable clang-specific config options when using a different compiler
-<<<<<<< HEAD
-clang-specific-configs := LTO_CLANG CFI_CLANG SHADOW_CALL_STACK INIT_STACK_ALL
-=======
 clang-specific-configs := LTO_CLANG CFI_CLANG SHADOW_CALL_STACK INIT_STACK_ALL_ZERO FORTIFY_SOURCE
->>>>>>> 661b23359c39a... ANDROID: Add FORTIFY_SOURCE to the list of clang-specific options
 
 # Disable lld-specific configs when using a different linker with GCC
 lld-specific-configs := RELR
