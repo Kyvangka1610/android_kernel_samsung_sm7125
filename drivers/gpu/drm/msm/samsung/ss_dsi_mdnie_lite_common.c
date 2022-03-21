@@ -387,7 +387,6 @@ static int fake_id(int app_id)
 	return ret_id;
 }
 
-
 static ssize_t scenario_store(struct device *dev,
 					  struct device_attribute *attr,
 					  const char *buf, size_t size)
