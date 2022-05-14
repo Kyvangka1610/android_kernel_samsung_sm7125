@@ -19,7 +19,6 @@ clang_build () {
                           CC="clang" \
                           AR="llvm-ar" \
                           NM="llvm-nm" \
-			              LD="ld.lld" \
 			              AS="llvm-as" \
 			              OBJCOPY="llvm-objcopy" \
 			              OBJDUMP="llvm-objdump" \
