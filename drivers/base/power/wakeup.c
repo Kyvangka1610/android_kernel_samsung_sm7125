@@ -30,9 +30,6 @@ suspend_state_t pm_suspend_target_state;
 #define pm_suspend_target_state	(PM_SUSPEND_ON)
 #endif
 
-#ifdef CONFIG_SEC_PM
-#include <linux/wakeup_reason.h>
-
 #ifdef CONFIG_BOEFFLA_WL_BLOCKER
 #include "boeffla_wl_blocker.h"
 
