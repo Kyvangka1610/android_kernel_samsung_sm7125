@@ -4,12 +4,12 @@ echo -e "\nStarting compilation...\n"
 CONFIG=vendor/sixteen-a72q_defconfig
 KERNEL_DIR=$(pwd)
 PARENT_DIR="$(dirname "$KERNEL_DIR")"
-KERN_IMG="$HOME/out-new-R/out/arch/arm64/boot/Image.gz-dtb"
+KERN_IMG="$HOME/out-a72/out/arch/arm64/boot/Image.gz-dtb"
 export KBUILD_BUILD_USER="elang"
 export KBUILD_BUILD_HOST="kyvangkaelang"
-export PATH="$HOME/toolchain/aosp-clang/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/toolchain/aosp-clang/lib:$LD_LIBRARY_PATH"
-export KBUILD_COMPILER_STRING="$($HOME/toolchain/aosp-clang/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
+export PATH="$HOME/toolchain/Snapdragon-LLVM/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/toolchain/Snapdragon-LLVM/lib:$LD_LIBRARY_PATH"
+export KBUILD_COMPILER_STRING="$($HOME/toolchain/Snapdragon-LLVM/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
 export out=$HOME/out-a72
 
 # Functions
