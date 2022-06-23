@@ -612,6 +612,13 @@ config TEST_IRQ_REQUESTER
 
 	  If in doubt, say N.
 
+config LYB_THERMAL
+	bool "Lybxlpsv's thermal settings driver"
+	default n
+	help
+	   This is not to be used by an amateur as this may cause damage to
+	   the device so use it at your own risk. If in any doubt about, say N.
+
 config BATTERY_SAVER
 	bool "Battery saver mode for kernelspace"
 	help
