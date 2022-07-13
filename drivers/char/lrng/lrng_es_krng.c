@@ -33,8 +33,7 @@ static u32 lrng_krng_fips_entropylevel(u32 entropylevel)
 	return fips_enabled ? 0 : entropylevel;
 }
 
-static int lrng_krng_adjust_entropy(struct notifier_block *nb,
-				    unsigned long action, void *data)
+static void lrng_krng_adjust_entropy(struct random_ready_callback *rdy)
 {
 	u32 entropylevel;
 

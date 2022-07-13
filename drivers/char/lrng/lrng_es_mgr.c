@@ -336,8 +336,13 @@ int __init lrng_rand_initialize(void)
 	seed.time = ktime_get_real();
 
 	for (i = 0; i < ARRAY_SIZE(seed.data); i++) {
+#ifdef CONFIG_LRNG_RANDOM_IF
+		if (!arch_get_random_seed_long_early(&(seed.data[i])) &&
+		    !arch_get_random_long_early(&seed.data[i]))
+#else
 		if (!arch_get_random_seed_long(&(seed.data[i])) &&
 		    !arch_get_random_long(&seed.data[i]))
+#endif
 			seed.data[i] = random_get_entropy();
 	}
 	memcpy(&seed.utsname, utsname(), sizeof(*(utsname())));

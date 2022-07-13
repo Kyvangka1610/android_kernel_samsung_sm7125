@@ -272,6 +272,18 @@ long lrng_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 			return -EPERM;
 		lrng_pool_set_entropy(0);
 		return 0;
+	case RNDRESEEDCRNG:
+		/*
+		 * We leave the capability check here since it is present
+		 * in the upstream's RNG implementation. Yet, user space
+		 * can trigger a reseed as easy as writing into /dev/random
+		 * or /dev/urandom where no privilege is needed.
+		 */
+		if (!capable(CAP_SYS_ADMIN))
+			return -EPERM;
+		/* Force a reseed of all DRNGs */
+		lrng_drng_force_reseed();
+		return 0;
 	default:
 		return -EINVAL;
 	}
