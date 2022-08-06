@@ -2534,7 +2534,63 @@ CONFIG_MSM_ADSPRPC=y
 # CONFIG_MSM_RDBG is not set
 CONFIG_SRANDOM=y
 CONFIG_RANDOM_DEFAULT_IMPL=y
-# CONFIG_LRNG is not set
+CONFIG_LRNG=y
+
+#
+# Linux Random Number Generator Configuration
+#
+CONFIG_LRNG_SHA256=y
+# CONFIG_LRNG_RANDOM_IF is not set
+
+#
+# LRNG Interfaces
+#
+# CONFIG_LRNG_KCAPI_IF is not set
+# CONFIG_LRNG_DEV_IF is not set
+
+#
+# Entropy Source Configuration
+#
+# CONFIG_LRNG_RUNTIME_ES_CONFIG is not set
+
+#
+# Common Timer-based Entropy Source Configuration
+#
+CONFIG_LRNG_RCT_CUTOFF=31
+CONFIG_LRNG_APT_CUTOFF=325
+
+#
+# Interrupt Entropy Source
+#
+
+#
+# Jitter RNG Entropy Source
+#
+# CONFIG_LRNG_JENT is not set
+
+#
+# CPU Entropy Source
+#
+CONFIG_LRNG_CPU=y
+CONFIG_LRNG_CPU_FULL_ENT_MULTIPLIER=1
+CONFIG_LRNG_CPU_ENTROPY_RATE=8
+
+#
+# Scheduler Entropy Source
+#
+# CONFIG_LRNG_SCHED is not set
+
+#
+# Kernel RNG Entropy Source
+#
+# CONFIG_LRNG_KERNEL_RNG is not set
+CONFIG_LRNG_DRNG_CHACHA20=y
+# CONFIG_LRNG_SWITCH_HASH is not set
+# CONFIG_LRNG_SWITCH_DRNG is not set
+CONFIG_LRNG_DFLT_DRNG_CHACHA20=y
+# CONFIG_LRNG_DFLT_DRNG_DRBG is not set
+# CONFIG_LRNG_DFLT_DRNG_KCAPI is not set
+# CONFIG_LRNG_SELFTEST is not set
 
 #
 # I2C support
@@ -6806,3 +6862,4 @@ CONFIG_SG_POOL=y
 CONFIG_ARCH_HAS_SG_CHAIN=y
 CONFIG_SBITMAP=y
 # CONFIG_STRING_SELFTEST is not set
+CONFIG_CRYPTO_LIB_SHA256=y
