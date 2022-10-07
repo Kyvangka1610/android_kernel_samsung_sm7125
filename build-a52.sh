@@ -24,7 +24,6 @@ clang_build () {
                           STRIP="llvm-strip" \
 			              OBJCOPY="llvm-objcopy" \
 			              OBJDUMP="llvm-objdump" \
-                          CLANG_TRIPLE=aarch64-linux-gnu- \
                           CROSS_COMPILE=$HOME/toolchain/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu- \
                           CROSS_COMPILE_ARM32=$HOME/toolchain/gcc-arm-11.2-2022.02-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-
 }
