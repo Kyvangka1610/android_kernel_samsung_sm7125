@@ -7,9 +7,9 @@ PARENT_DIR="$(dirname "$KERNEL_DIR")"
 KERN_IMG="$HOME/out-a52/out/arch/arm64/boot/Image.gz-dtb"
 export KBUILD_BUILD_USER="elang"
 export KBUILD_BUILD_HOST="kyvangkaelang"
-export PATH="$HOME/toolchain/clang-r468909b/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/toolchain/clang-r468909b/lib:$LD_LIBRARY_PATH"
-export KBUILD_COMPILER_STRING="$($HOME/toolchain/clang-r468909b/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
+export PATH="$HOME/toolchain/Clang-r416183c2/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/toolchain/Clang-r416183c2/lib:$LD_LIBRARY_PATH"
+export KBUILD_COMPILER_STRING="$($HOME/toolchain/Clang-r416183c2/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
 export out=$HOME/out-a52
 
 # Functions
@@ -24,8 +24,9 @@ clang_build () {
                           STRIP="llvm-strip" \
 			              OBJCOPY="llvm-objcopy" \
 			              OBJDUMP="llvm-objdump" \
-                          CROSS_COMPILE=$HOME/toolchain/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu- \
-                          CROSS_COMPILE_ARM32=$HOME/toolchain/gcc-arm-11.2-2022.02-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-
+                          CLANG_TRIPLE=aarch64-linux-gnu- \
+                          CROSS_COMPILE=$HOME/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
+                          CROSS_COMPILE_ARM32=$HOME/toolchain/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 }
 
 # Build kernel
