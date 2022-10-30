@@ -10,7 +10,7 @@ export KBUILD_BUILD_HOST="kyvangkaelang"
 export PATH="$HOME/toolchain/Clang-r416183c2/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/toolchain/Clang-r416183c2/lib:$LD_LIBRARY_PATH"
 export KBUILD_COMPILER_STRING="$($HOME/toolchain/Clang-r416183c2/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
-export out=$HOME/out-a52
+export out=$HOME/out-a52-ONEUI
 
 # Functions
 clang_build () {
