@@ -1929,9 +1929,6 @@ thermal_sconfig_store(struct device *dev,
 	return len;
 }
 
-static DEVICE_ATTR(sconfig, 0664,
-		   thermal_sconfig_show, thermal_sconfig_store);
-
 static ssize_t
 thermal_boost_show(struct device *dev,
 				      struct device_attribute *attr, char *buf)
@@ -1970,9 +1967,6 @@ thermal_temp_state_store(struct device *dev,
 
 	return len;
 }
-
-static DEVICE_ATTR(temp_state, 0664,
-		   thermal_temp_state_show, thermal_temp_state_store);
 
 static ssize_t
 cpu_limits_show(struct device *dev,
