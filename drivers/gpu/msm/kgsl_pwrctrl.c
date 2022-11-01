@@ -932,6 +932,7 @@ static ssize_t __timer_store(struct device *dev, struct device_attribute *attr,
 	int ret;
 
 	return count;
+
 	if (device == NULL)
 		return 0;
 
