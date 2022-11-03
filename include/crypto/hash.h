@@ -147,6 +147,8 @@ struct shash_desc {
 	void *__ctx[] CRYPTO_MINALIGN_ATTR;
 };
 
+#define HASH_MAX_DIGESTSIZE	 64
+
 /*
  * Worst case is hmac(sha3-224-generic).  Its context is a nested 'shash_desc'
  * containing a 'struct sha3_state'.
@@ -154,7 +156,6 @@ struct shash_desc {
 #define HASH_MAX_DESCSIZE	(sizeof(struct shash_desc) + 360)
 
 #define HASH_MAX_DIGESTSIZE	 64
-#define HASH_MAX_DESCSIZE	360
 #define HASH_MAX_STATESIZE	512
 
 #define SHASH_DESC_ON_STACK(shash, ctx)				  \
