@@ -2643,6 +2643,7 @@ static struct platform_driver gcc_atoll_driver = {
 	.driver = {
 		.name = "atoll-gcc",
 		.of_match_table = gcc_atoll_match_table,
+		.probe_type = PROBE_FORCE_SYNCHRONOUS,
 	},
 };
 
