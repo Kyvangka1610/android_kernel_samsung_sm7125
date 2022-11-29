@@ -157,7 +157,6 @@ int freeze_processes(void)
 	if (!error && !oom_killer_disable(msecs_to_jiffies(freeze_timeout_msecs)))
 		error = -EBUSY;
 #endif
-
 	if (error)
 		thaw_processes();
 	return error;
@@ -204,7 +203,6 @@ void thaw_processes(void)
 #ifndef CONFIG_ANDROID
 	oom_killer_enable();
 #endif
-
 	pr_info("Restarting tasks ... ");
 
 	__usermodehelper_set_disable_depth(UMH_FREEZING);
