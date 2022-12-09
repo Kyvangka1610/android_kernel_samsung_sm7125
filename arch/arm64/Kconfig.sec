@@ -1,0 +1,12 @@
+config SEC_A52Q_PROJECT
+        default n
+        bool "Samsung A52Q Project"
+        help
+          Support for Samsung A52Q Project
+
+config SEC_A52Q_EUR_PROJECT
+        default n
+        bool "Samsung A52Q EUR OPEN Project"
+        help
+          Support for Samsung A52Q EUR OPEN Project
+
