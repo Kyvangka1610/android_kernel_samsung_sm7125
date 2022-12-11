@@ -117,19 +117,6 @@ inode_maybe_inc_iversion(struct inode *inode, bool force)
 }
 
 /**
- * inode_inc_iversion - forcibly increment i_version
- * @inode: inode that needs to be updated
- *
- * Forcbily increment the i_version field. This always results in a change to
- * the observable value.
- */
-static inline void
-inode_inc_iversion(struct inode *inode)
-{
-	inode_maybe_inc_iversion(inode, true);
-}
-
-/**
  * inode_iversion_need_inc - is the i_version in need of being incremented?
  * @inode: inode to check
  *
