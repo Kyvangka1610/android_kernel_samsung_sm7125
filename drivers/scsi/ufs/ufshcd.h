@@ -58,7 +58,6 @@
 #include <linux/regulator/consumer.h>
 #include <linux/reset.h>
 #include <linux/extcon.h>
-#include <linux/pm_qos.h>
 #include "unipro.h"
 
 #include <asm/irq.h>
@@ -1236,17 +1235,9 @@ struct ufs_hba {
 #if defined(CONFIG_UFS_DATA_LOG)
 	atomic_t	log_count;
 #endif
-
-	struct {
-		struct work_struct get_work;
-		struct work_struct put_work;
-		struct mutex lock;
-		atomic_t count;
-		bool active;
-	} pm_qos;
 };
 
-static inline void ufshcd_vops_remove_debugfs(struct ufs_hba *hba)
+	static inline void ufshcd_mark_shutdown_ongoing(struct ufs_hba *hba)
 {
 	set_bit(0, &hba->shutdown_in_prog);
 }
