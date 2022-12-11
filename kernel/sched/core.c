@@ -57,7 +57,6 @@ void summary_set_lpm_info_runqueues(struct sec_debug_summary_data_apss *apss)
 {
 	pr_info("%s : 0x%llx\n", __func__, virt_to_phys((void *)&runqueues));
 	apss->aplpm.p_runqueues = virt_to_phys((void *)&runqueues);
-	apss->aplpm.cstate_offset = offsetof(struct rq, cstate);
 }
 #endif
 

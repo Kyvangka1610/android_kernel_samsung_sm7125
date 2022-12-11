@@ -15,15 +15,12 @@ obj-vdso-s := $(addprefix $(obj)/, $(obj-vdso-s))
 obj-vdso-c := $(addprefix $(obj)/, $(obj-vdso-c))
 obj-vdso   := $(obj-vdso-c) $(obj-vdso-s)
 
-<<<<<<< HEAD
 ldflags-y := -shared -nostdlib -soname=linux-vdso.so.1  --hash-style=sysv \
 		--build-id -n -T
-=======
 ccflags-y := -shared -fno-common -fno-builtin -fno-stack-protector
 ccflags-y += -DDISABLE_BRANCH_PROFILING -ffixed-x18
 ccflags-y += -nostdlib -Wl,-soname=linux-vdso.so.1 \
 		$(call cc-ldoption, -Wl$(comma)--hash-style=sysv)
->>>>>>> edccb29e8728... FROMLIST: [PATCH v5 10/12] arm64: vdso: replace gettimeofday.S with global vgettimeofday.C
 ccflags-y += $(DISABLE_LTO)
 
 # Force -O2 to avoid libgcc dependencies
@@ -76,13 +73,10 @@ $(obj-vdso-c): %.o: %.c FORCE
 	$(call if_changed_dep,vdsocc)
 
 # Actual build commands
-<<<<<<< HEAD
-=======
 quiet_cmd_vdsold = VDSOL   $@
       cmd_vdsold = $(CC) $(c_flags) -Wl,-n -Wl,-T $^ -o $@
 quiet_cmd_vdsocc = VDSOC   $@
       cmd_vdsocc = ${CC} $(c_flags) -c -o $@ $<
->>>>>>> edccb29e8728... FROMLIST: [PATCH v5 10/12] arm64: vdso: replace gettimeofday.S with global vgettimeofday.C
 quiet_cmd_vdsoas = VDSOA   $@
       cmd_vdsoas = $(CC) $(a_flags) -c -o $@ $<
 

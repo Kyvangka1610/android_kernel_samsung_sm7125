@@ -3588,8 +3588,6 @@ static int fastrpc_internal_control(struct fastrpc_file *fl,
 		VERIFY(err, latency != 0);
 		if (err)
 			goto bail;
-<<<<<<< HEAD
-=======
 		mutex_lock(&fl->pm_qos_mutex);
 		cpumask_clear(&mask);
 		for (i = 0; i < len; i++)
@@ -3597,7 +3595,6 @@ static int fastrpc_internal_control(struct fastrpc_file *fl,
 		fl->pm_qos_req.type = PM_QOS_REQ_AFFINE_CORES;
 		cpumask_copy(&fl->pm_qos_req.cpus_affine, &mask);
 
->>>>>>> 4d6e4b7ee722... char: adsprpc: Set QoS only to silver cluster
 		if (!fl->qos_request) {
 			pm_qos_add_request(&fl->pm_qos_req,
 				PM_QOS_CPU_DMA_LATENCY, latency);
