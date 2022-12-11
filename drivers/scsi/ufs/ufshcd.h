@@ -1216,6 +1216,7 @@ struct ufs_hba {
 	void *crypto_DO_NOT_USE[8];
 #endif /* CONFIG_SCSI_UFS_CRYPTO */
 
+#if IS_ENABLED(CONFIG_BLK_TURBO_WRITE)
 	bool support_tw;
 	bool tw_state_not_allowed;
 	struct mutex tw_ctrl_mutex;
@@ -1245,6 +1246,7 @@ struct ufs_hba {
 	} pm_qos;
 };
 
+static inline void ufshcd_vops_remove_debugfs(struct ufs_hba *hba)
 {
 	set_bit(0, &hba->shutdown_in_prog);
 }
@@ -1687,10 +1689,6 @@ static inline void ufshcd_vops_remove_debugfs(struct ufs_hba *hba)
 #else
 static inline void ufshcd_vops_add_debugfs(struct ufs_hba *hba,
 					   struct dentry *root)
-{
-}
-
-static inline void ufshcd_vops_remove_debugfs(struct ufs_hba *hba)
 {
 }
 #endif
