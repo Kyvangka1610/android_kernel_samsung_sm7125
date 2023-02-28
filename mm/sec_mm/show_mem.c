@@ -26,7 +26,6 @@ void mm_debug_show_free_areas(void)
 		" zspages:%lu"
 #endif
 		" swapfree:%lu\n",
-		K(totalram_pages),
 		K(global_node_page_state(NR_ACTIVE_ANON)),
 		K(global_node_page_state(NR_INACTIVE_ANON)),
 		K(global_node_page_state(NR_ISOLATED_ANON)),
@@ -131,8 +130,7 @@ void mm_debug_dump_tasks(void)
 	rcu_read_unlock();
 	if (heaviest_rss_sum)
 		pr_info("heaviest_task_rss:%s(%d) size:%luKB, totalram_pages:%luKB\n",
-			heaviest_comm, heaviest_pid, K(heaviest_rss_sum),
-			K(totalram_pages));
+			heaviest_comm, heaviest_pid, K(heaviest_rss_sum));
 }
 
 MODULE_LICENSE("GPL");
