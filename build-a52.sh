@@ -10,7 +10,7 @@ export KBUILD_BUILD_HOST="kyvangkaelang"
 export PATH="$HOME/toolchain/Sixteen_Clang/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/toolchain/Sixteen_Clang/lib:$LD_LIBRARY_PATH"
 export KBUILD_COMPILER_STRING="$($HOME/toolchain/Sixteen_Clang/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
-export out=$HOME/out-a52-Tiramisu-Test
+export out=$HOME/out-a52-Tiramisu-AOSP
 
 # Functions
 clang_build () {
@@ -36,7 +36,7 @@ echo -e "\nCompiling $ZIPNAME\n"
 clang_build
 if [ -f "$out/arch/arm64/boot/Image.gz-dtb" ] && [ -f "$out/arch/arm64/boot/dtbo.img" ]; then
  echo -e "\nKernel compiled succesfully! Zipping up...\n"
- ZIPNAME="SixTeen•Kernel•ONEUI•Samsung•A52-$(date '+%Y%m%d-%H%M').zip"
+ ZIPNAME="SixTeen•Kernel•AOSP•Samsung•A52-$(date '+%Y%m%d-%H%M').zip"
  if [ ! -d AnyKernel3 ]; then
   git clone -q https://github.com/Kyvangka1610/AnyKernel3.git -b samsung
  fi;
