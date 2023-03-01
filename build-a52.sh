@@ -10,7 +10,7 @@ export KBUILD_BUILD_HOST="kyvangkaelang"
 export PATH="$HOME/toolchain/Sixteen_Clang/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/toolchain/Sixteen_Clang/lib:$LD_LIBRARY_PATH"
 export KBUILD_COMPILER_STRING="$($HOME/toolchain/Sixteen_Clang/bin/clang --version | head -n 1 | perl -pe 's/\((?:http|git).*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')"
-export out=$HOME/out-a52-Tiramisu-Test
+export out=$HOME/out-a52-Tiramisu-ONEUI
 
 # Functions
 clang_build () {
