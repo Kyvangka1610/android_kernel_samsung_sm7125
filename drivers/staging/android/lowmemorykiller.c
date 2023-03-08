@@ -121,7 +121,6 @@ static void show_memory(void)
 		" pagetables:%lukB"
 		" free_cma:%lukB"
 		"\n",
-		K(totalram_pages),
 		K(global_zone_page_state(NR_FREE_PAGES)),
 		K(global_node_page_state(NR_ACTIVE_ANON)),
 		K(global_node_page_state(NR_INACTIVE_ANON)),
@@ -498,7 +497,7 @@ static int get_minfree_scalefactor(gfp_t gfp_mask)
 	for_each_zone_zonelist(zone, z, zonelist, gfp_zone(gfp_mask))
 		nr_usable += zone->managed_pages;
 
-	return max_t(int, 1, mult_frac(100, nr_usable, totalram_pages));
+	return 0;
 }
 
 static void mark_lmk_victim(struct task_struct *tsk)
