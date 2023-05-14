@@ -738,7 +738,6 @@ static ssize_t backing_dev_store(struct device *dev,
 	return len;
 #ifdef CONFIG_ZRAM_LRU_WRITEBACK
 init_lru_writeback_fail:
-	zram->old_block_size = 0;
 	zram->bdev = NULL;
 	zram->backing_dev = NULL;
 	zram->bitmap = NULL;
