@@ -14,7 +14,7 @@ export out=$HOME/out-a52-Tiramisu-AOSP
 
 # Functions
 clang_build () {
-    make -j$(nproc --all) O=$out \
+    make -j$(nproc --all) O=$out Image.gz-dtb \
                           ARCH=arm64 \
                           CC="clang" \
                           AR="llvm-ar" \
